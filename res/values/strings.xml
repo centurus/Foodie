@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Foodie</string>
+    <string name="ActivityMainTitle">Foodie</string>
+    <string name="main_navigation_home">首页</string>
+    <string name="main_navigation_catagory">地图</string>
+    <string name="main_navigation_car">我的预定</string>
+    <string name="main_code_buy">我的Foodie</string>
+    <string name="main_navigation_more">更多</string>
+    <string name="app_close">关闭应用程序</string>
+    <string name="btn_cancel">取 消</string>
+    <string name="btn_ok">确 定</string>
+    <string name="cart_item_hint">您还没有预定美食!</string>
+    <string name="hello_world">Hello world!</string> 
+    <string name="action_settings">Settings</string> 
+    <string name="action_location">我的位置</string> 
+
+</resources>
