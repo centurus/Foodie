@@ -6,5 +6,5 @@
     <dimen name="bottom_tab_padding_drawable">2.0dip</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    
+    <dimen name="community_tab_font_size">20.0dip</dimen>
 </resources>

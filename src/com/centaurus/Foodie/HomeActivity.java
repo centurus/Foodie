@@ -1,70 +1,149 @@
 package com.centaurus.Foodie;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import com.centaurus.Foodie.R;
+import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.AbsListView.OnScrollListener;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 
-public class HomeActivity extends Activity implements OnItemClickListener,
-		OnScrollListener {
-	
-	private ListView ResturantList;
-	private ArrayAdapter<String> arr_adapter;
-	//private SimpleAdapter simp_adapterAdapter;
-	public String rantName;
-	//´ÓRestInfo»ñÈ¡²ÍÌüĞÅÏ¢Êı×é
-	RestInfo rInfo=new RestInfo();
-	String[] arr_data = rInfo.arr_name;
+import com.centaurus.adpter.MyListViewAdapter;
+import com.centaurus.bean.FoodContent;
+import com.centaurus.util.CallbackJSONObject;
+import com.centaurus.util.JsonUtils;
+import com.centaurus.util.URLUtils;
+import com.centaurus.util.VolleyUtils;
+import com.centaurus.view.MyDialog;
+/**
+ * é¦–é¡µ
+ *
+ */
+public class HomeActivity extends Activity implements OnClickListener,
+		OnItemClickListener {
+	private ListView listview1;
+	private TextView common_title;
+	private String title;
+	private String url;
+	private VolleyUtils volleyUtils;
+	private List<FoodContent> list = new ArrayList<FoodContent>();
+	private MyListViewAdapter adapter;
+	private MyDialog dialog;
+	private Button morebutton;
+	private String[] idss;
+	private JsonUtils jsonUtils;
+	private static final int MORE_LIMIT = 10;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main_home);
-		ResturantList = (ListView) findViewById(R.id.RestaurantlistView);
-		// ĞÂ½¨Ò»¸öÊÊÅäÆ÷
-
-		//String[] arr_data = { "¼ÒÔ°²ÍÌü", "Ã÷ºş²ÍÌü", "½ÌÖ°¹¤²ÍÌü" };
+		super.onCreate(savedInstanceState); 
+		setContentView(R.layout.activity_chosen_recipe);
+		listview1 = (ListView) this.findViewById(R.id.listView1_chosen_recipe);
+		common_title = (TextView) this.findViewById(R.id.common_title);
+		title = "èœè°±";
+		url = URLUtils.CHOSEN_RECIPE;
+		common_title.setText(title);
+		adapter = new MyListViewAdapter(this);
 		
-		// ÊÊÅäÆ÷¼ÓÔØÊı¾İÔ´
-		arr_adapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, arr_data);
-		// ÊÓÍ¼£¨RestaurantList£©¼ÓÔØÊÊÅäÆ÷
-		ResturantList.setAdapter(arr_adapter);
-		ResturantList.setOnItemClickListener(this);
-		ResturantList.setOnScrollListener(this);
+		morebutton = new Button(this);
+		morebutton.setText("æ›´å¤š");
+		morebutton.setGravity(Gravity.CENTER);
+		morebutton.setOnClickListener(this);
+		//
+		listview1.addFooterView(morebutton);
+		listview1.setAdapter(adapter);
+		listview1.setOnItemClickListener(this);
+		init();
+	}
 
+	private String moreids;
+//ä»æœåŠ¡å™¨è§£æJSONæ•°æ®ï¼Œç„¶åå¾—åˆ°åˆ—è¡¨çš„æ€»æ•°ï¼Œå°†å…¶æ·»åŠ åˆ°åˆ—è¡¨ä¸­
+	private void init() {
+		dialog = MyDialog.newInstance(this);
+		jsonUtils = new JsonUtils();
+		volleyUtils = new VolleyUtils();
+		volleyUtils.newRequestQueue(this);
+		dialog.show();
+
+		volleyUtils.getJSONObject(url, new CallbackJSONObject() {
+
+			@Override
+			public void getJSONObject(JSONObject json) {
+				moreids = jsonUtils.parserIds(json);
+				idss = moreids.split(",");
+				String ids = getCurrentids();
+				volleyUtils.getJSONObject(
+						URLUtils.SIFT_RECIPE_LIST_BY_ID + ids,
+						new CallbackJSONObject() {
+							@Override
+							public void getJSONObject(JSONObject json) {
+								dialog.dismiss();
+								list = jsonUtils
+										.parserJSONObjectToFoodContent(json);
+								number = list.size();
+								adapter.addList(list);
+
+							}
+						});
+			}
+
+		});
+	}
+
+	private int number = 0;
+//è·å–å½“å‰ç‚¹å‡»çš„åˆ—è¡¨ID
+	private String getCurrentids() {
+		String currentids = "";
+		for (int i = number; i < MORE_LIMIT + number; i++) {
+			currentids += idss[i] + ",";
+		}
+		number += MORE_LIMIT;
+		System.out.println("----currentids----" + currentids);
+		return currentids;
+	}
+//è·å¾—æ›´å¤šèœå•ä¿¡æ¯
+	private void getMoreInfo() {
+		String ids = getCurrentids();
+		dialog.show();
+
+		volleyUtils.getJSONObject(URLUtils.SIFT_RECIPE_LIST_BY_ID + ids,
+				new CallbackJSONObject() {
+
+					@Override
+					public void getJSONObject(JSONObject json) {
+
+						dialog.dismiss();
+						list.addAll(jsonUtils
+								.parserJSONObjectToFoodContent(json));
+						adapter.addList(list);
+						adapter.notifyDataSetChanged();
+					}
+				});
+	}
+//ç‚¹å‡»å…·ä½“æŸä¸€é€‰é¡¹æ˜¯çš„æ“ä½œ
+	@Override
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long id) {
+		Intent intent = new Intent(this, FoodContentActivity.class);
+		intent.putExtra("id", list.get(position).getId());
+		intent.putExtra("imageid", list.get(position).getImageid() + "");
+		intent.putExtra("name", list.get(position).getName());
+		this.startActivity(intent);
 	}
 
 	@Override
-	public void onScroll(AbsListView arg0, int arg1, int arg2, int arg3) {
+	public void onClick(View v) {
 		// TODO Auto-generated method stub
-
+		getMoreInfo();
 	}
 
-	@Override
-	public void onScrollStateChanged(AbsListView arg0, int arg1) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		Intent i = new Intent(HomeActivity.this, RestDetailActivity.class);
-		rantName=arr_data[(int) arg3];
-		i.putExtra(ACCOUNT_SERVICE, rantName);
-		startActivityForResult(i, arg2);
-
-	}
-   
 }

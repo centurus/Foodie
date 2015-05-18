@@ -3,4 +3,6 @@
    <color name="white">#ffffffff</color>
     <color name="light_gray">#ffe6e6e6</color>
     <color name="black">#ff000000</color>
+     <drawable name="button_normal">#ffffffff</drawable>
+    <drawable name="button_pressed">#ffE6E6E6</drawable>
 </resources>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/item_selector"
+    android:orientation="horizontal"
+    android:padding="10dp" >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/networkimage_chosen_recipe_listview"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/photo_mask_big" >
+        </com.android.volley.toolbox.NetworkImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView1_chosen_recipe_listview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="top|center"
+            android:text="广州排骨沙河粉汤"
+            android:textColor="#FF7F00"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView2_chosen_recipe_listview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:lines="2"
+            android:text=""
+            android:textColor="#aaaaaa"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

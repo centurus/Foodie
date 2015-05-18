@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/comment_up_line"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+         >
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/comments_user_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/comments_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/comments_user_image"
+            android:text="见只" />
+
+        <TextView
+            android:id="@+id/comments_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/comments_user_name"
+            android:layout_below="@+id/comments_user_name"
+            android:text="2013-5-13 09:34:34" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp" >
+
+        <TextView
+            android:id="@+id/comments_view_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:paddingRight="30dp"
+            android:layout_toRightOf="@+id/comments_view_image2"
+            android:text="欢好喜欢好喜欢好喜欢好喜欢好喜欢好喜欢好喜欢好喜欢" />
+
+        <ImageView
+            android:id="@+id/comments_view_image2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/list_comments" />
+    </RelativeLayout>
+
+</LinearLayout>
