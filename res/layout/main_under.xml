@@ -52,18 +52,20 @@
                     android:text="@string/main_navigation_catagory" />
 
                 <RadioButton
+                    android:visibility="gone"
                     android:id="@+id/main_tab_car"
                     style="@style/main_tab_bottom"
                     android:drawableTop="@drawable/main_navigation_car"
                     android:text="@string/main_navigation_car" />
 
                 <RadioButton
-                    android:id="@+id/main_tab_buy"
+                    android:id="@+id/main_my"
                     style="@style/main_tab_bottom"
                     android:drawableTop="@drawable/main_navigation_personal"
-                    android:text="@string/main_code_buy" />
+                    android:text="@string/main_my" />
 
                 <RadioButton
+                    android:visibility="gone"
                     android:id="@+id/main_tab_more"
                     style="@style/main_tab_bottom"
                     android:drawableTop="@drawable/main_navigation_more"

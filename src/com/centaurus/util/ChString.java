@@ -1,15 +1,15 @@
 package com.centaurus.util;
 
 public class ChString {
-	public static final String Kilometer = "\u516c\u91cc";
-	public static final String Meter = "\u7c73";
-	public static final String ByFoot = "\u6b65\u884c";
-	public static final String To = "\u53bb\u5f80";
-	public static final String Station = "\u8f66\u7ad9";
-	public static final String TargetPlace = "\u76ee\u7684\u5730";
-	public static final String StartPlace = "\u51fa\u53d1\u5730";
-	public static final String About = "\u5927\u7ea6";
-	public static final String Direction = "\u65b9\u5411";
+	public static final String Kilometer = "\u516c\u91cc";// "����";
+	public static final String Meter = "\u7c73";// "��";
+	public static final String ByFoot = "\u6b65\u884c";// "����";
+	public static final String To = "\u53bb\u5f80";// "ȥ��";
+	public static final String Station = "\u8f66\u7ad9";// "��վ";
+	public static final String TargetPlace = "\u76ee\u7684\u5730";// "Ŀ�ĵ�";
+	public static final String StartPlace = "\u51fa\u53d1\u5730";// "������";
+	public static final String About = "\u5927\u7ea6";// "��Լ";
+	public static final String Direction = "\u65b9\u5411";// "����";
 
 	public static final String GetOn = "\u4e0a\u8f66";// "�ϳ�";
 	public static final String GetOff = "\u4e0b\u8f66";// "�³�";

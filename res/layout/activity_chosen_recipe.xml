@@ -23,7 +23,7 @@
                 android:id="@+id/common_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="菜谱"
+                android:text="精选菜谱"
                 android:textColor="#FFF8DC"
                 android:textSize="20sp" />
 

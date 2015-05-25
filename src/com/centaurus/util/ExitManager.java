@@ -19,11 +19,9 @@ public class ExitManager extends Application{
 		}
 		   return instance;
 	   }
-	   
 	   public void addActivity(Activity activity){
 		   activityList.add(activity);
 	   }
-	   
 	   public void exit(){
 		   for(Activity activity:activityList){
 			     if(!activity.isFinishing()){

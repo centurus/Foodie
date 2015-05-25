@@ -44,6 +44,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.centaurus.Foodie.HomeSearchActivity" />
         <activity android:name="com.centaurus.Foodie.HomeActivity" />
         <activity android:name="com.centaurus.Foodie.MapActivity" />
         <activity android:name="com.centaurus.Foodie.MineActivity" />
@@ -56,7 +57,12 @@
         <activity android:name="com.centaurus.Foodie.CateSearchActivity" />
         <activity android:name="com.centaurus.Foodie.SearchActivity" />
         <activity android:name="com.centaurus.Foodie.MyCollectActivity" />
-        <service
+        <activity android:name="com.centaurus.Foodie.MyActivity" />
+        <activity android:name="com.centaurus.Foodie.RegistrationActivity" />
+        <activity android:name="com.centaurus.Foodie.LoginActivity" />
+        <activity android:name="com.centaurus.Foodie.CheckInActivity" />
+
+        <service
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote" >

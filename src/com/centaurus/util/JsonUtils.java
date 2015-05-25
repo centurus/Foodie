@@ -15,9 +15,7 @@ import com.centaurus.bean.Materidl;
 import com.centaurus.bean.Step;
 import com.centaurus.bean.Tips;
 
-/*
- * 解析获取JSON数据
- */
+
 public class JsonUtils {
 	
 	public Map<String,String> parserShake(JSONObject json){
@@ -34,7 +32,7 @@ public class JsonUtils {
 	}
 	
 	/**
-	 * 
+	 * 解析菜谱内容评论详情
 	 * @param json
 	 * @return
 	 */
@@ -49,9 +47,8 @@ public class JsonUtils {
 		return message;
 	}
 	
-	
 	/**
-	 * 解析餐厅信息
+	 * 解析菜谱列表id
 	 * @param json
 	 * @return
 	 */
@@ -70,11 +67,10 @@ public class JsonUtils {
 	}
 	
 	/**
-	 * 解析餐厅详情
+	 * 解析菜谱详情
 	 * @param json
 	 * @return
 	 */
-	
 	public FoodContent parserFoodContent(JSONObject json){
 		FoodContent food = new FoodContent();
 		List<Materidl> mlist = new ArrayList<Materidl>();

@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:lines="2"
-            android:text=""
+            android:text="材料：排骨两个，河粉500克，八角3个，小茴香。橙皮一块，大葱半"
             android:textColor="#aaaaaa"
             android:textSize="12sp" />
     </LinearLayout>

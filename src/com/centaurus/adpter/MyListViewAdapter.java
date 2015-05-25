@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,7 +61,7 @@ public class MyListViewAdapter extends BaseAdapter {
 		// TODO Auto-generated method stub
 		return position;
 	}
-//加载列表每一项的详细信息
+
 	@Override
 	public View getView(int position, View convertView, ViewGroup container) {
 		// TODO Auto-generated method stub
@@ -78,7 +81,7 @@ public class MyListViewAdapter extends BaseAdapter {
 			holder = (ViewHolder) convertView.getTag();
 		}
 		holder.textView1_holder.setText(getItem(position).getName());
-//		holder.textView2_holder.setText(getItem(position).getContent());
+		holder.textView2_holder.setText(getItem(position).getContent());
 		holder.imageView1_holder.setImageUrl(
 				URLUtils.IMAGE_URL + getItem(position).getImageid(),
 				mImageLoader);

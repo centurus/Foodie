@@ -7,6 +7,7 @@ import android.content.Context;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.Response.Listener;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
@@ -21,7 +22,7 @@ public class VolleyUtils {
 		}
 		return mQueue;
 	}
-//通过URL获取webservice的json数据包
+
 	public void getJSONObject(String url,final CallbackJSONObject callbackJSONObject){
 		
 		jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {

@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.centaurus.Foodie.R;
 import com.centaurus.adpter.MyListViewAdapter;
 import com.centaurus.bean.FoodContent;
 import com.centaurus.util.CallbackJSONObject;
@@ -37,7 +38,7 @@ public class HomeActivity extends Activity implements OnClickListener,
 	private VolleyUtils volleyUtils;
 	private List<FoodContent> list = new ArrayList<FoodContent>();
 	private MyListViewAdapter adapter;
-	private MyDialog dialog;
+	private MyDialog dialog; 
 	private Button morebutton;
 	private String[] idss;
 	private JsonUtils jsonUtils;
@@ -49,16 +50,14 @@ public class HomeActivity extends Activity implements OnClickListener,
 		setContentView(R.layout.activity_chosen_recipe);
 		listview1 = (ListView) this.findViewById(R.id.listView1_chosen_recipe);
 		common_title = (TextView) this.findViewById(R.id.common_title);
-		title = "菜谱";
+		title = "精选菜谱";
 		url = URLUtils.CHOSEN_RECIPE;
 		common_title.setText(title);
 		adapter = new MyListViewAdapter(this);
-		
 		morebutton = new Button(this);
 		morebutton.setText("更多");
 		morebutton.setGravity(Gravity.CENTER);
 		morebutton.setOnClickListener(this);
-		//
 		listview1.addFooterView(morebutton);
 		listview1.setAdapter(adapter);
 		listview1.setOnItemClickListener(this);
@@ -66,7 +65,7 @@ public class HomeActivity extends Activity implements OnClickListener,
 	}
 
 	private String moreids;
-//从服务器解析JSON数据，然后得到列表的总数，将其添加到列表中
+
 	private void init() {
 		dialog = MyDialog.newInstance(this);
 		jsonUtils = new JsonUtils();
@@ -100,7 +99,7 @@ public class HomeActivity extends Activity implements OnClickListener,
 	}
 
 	private int number = 0;
-//获取当前点击的列表ID
+
 	private String getCurrentids() {
 		String currentids = "";
 		for (int i = number; i < MORE_LIMIT + number; i++) {
@@ -110,7 +109,7 @@ public class HomeActivity extends Activity implements OnClickListener,
 		System.out.println("----currentids----" + currentids);
 		return currentids;
 	}
-//获得更多菜单信息
+
 	private void getMoreInfo() {
 		String ids = getCurrentids();
 		dialog.show();
@@ -129,7 +128,7 @@ public class HomeActivity extends Activity implements OnClickListener,
 					}
 				});
 	}
-//点击具体某一选项是的操作
+
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {

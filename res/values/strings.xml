@@ -4,9 +4,9 @@
     <string name="app_name">Foodie</string>
     <string name="ActivityMainTitle">Foodie</string>
     <string name="main_navigation_home">首页</string>
-    <string name="main_navigation_catagory">优惠</string>
+    <string name="main_navigation_catagory">地图</string>
     <string name="main_navigation_car">我的预定</string>
-    <string name="main_code_buy">我的</string>
+    <string name="main_my">我的</string>
     <string name="main_navigation_more">更多</string>
     <string name="app_close">关闭应用程序</string>
     <string name="btn_cancel">取 消</string>
