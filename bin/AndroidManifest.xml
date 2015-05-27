@@ -31,9 +31,9 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar" >
-        <meta-data
-            android:name="com.amap.api.v2.apikey"
-            android:value="451b6b2f89942d8b1fe84dcdbcbf614a" />
+       <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="kYi24VdVPxe1lhuRnOG6GXq3" />
 
         <activity
             android:name="com.centaurus.Foodie.FoodieUnderlineActivity"
@@ -44,6 +44,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.centaurus.Foodie.ShopCommentActivity" />
+        <activity android:name="com.centaurus.Foodie.ShopDetailsActivity" />
         <activity android:name="com.centaurus.Foodie.HomeSearchActivity" />
         <activity android:name="com.centaurus.Foodie.HomeActivity" />
         <activity android:name="com.centaurus.Foodie.MapActivity" />
@@ -53,7 +55,7 @@
         <activity android:name="com.centaurus.Foodie.FoodContentActivity" />
         <activity android:name="com.centaurus.Foodie.LocationMapActivity" />
         <activity android:name="com.centaurus.Foodie.RimActivity" />
-        <activity android:name="com.centaurus.Foodie.BitMapActivity" />
+        <activity android:name="com.centaurus.Foodie.MenuOrderActivity" />
         <activity android:name="com.centaurus.Foodie.CateSearchActivity" />
         <activity android:name="com.centaurus.Foodie.SearchActivity" />
         <activity android:name="com.centaurus.Foodie.MyCollectActivity" />

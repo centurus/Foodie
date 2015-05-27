@@ -50,7 +50,6 @@ public class HomeActivity extends Activity implements OnClickListener,
 		setContentView(R.layout.activity_chosen_recipe);
 		listview1 = (ListView) this.findViewById(R.id.listView1_chosen_recipe);
 		common_title = (TextView) this.findViewById(R.id.common_title);
-		title = "精选菜谱";
 		url = URLUtils.CHOSEN_RECIPE;
 		common_title.setText(title);
 		adapter = new MyListViewAdapter(this);

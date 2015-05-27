@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-      android:background="#ffffff"  >
+    android:background="#ffffff" >
 
     <RelativeLayout
         android:id="@+id/titlerelativelayout"
@@ -34,11 +34,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:text="全部商户"
+                android:text="Welcome to Foodie"
                 android:textColor="#FF8C00"
-                android:textSize="18sp" />
+                android:textSize="28sp" />
 
             <ImageView
+                android:visibility="gone"
                 android:id="@+id/Search_city_img"
                 android:layout_width="22dp"
                 android:layout_height="22dp"

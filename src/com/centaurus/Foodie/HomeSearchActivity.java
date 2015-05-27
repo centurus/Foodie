@@ -103,7 +103,7 @@ public class HomeSearchActivity extends Activity implements OnClickListener,
 
 		MyOnclickListener mOnclickListener = new MyOnclickListener();
 		mShoplist_back.setOnClickListener(mOnclickListener);
-		mtopLl.setOnClickListener(mOnclickListener);
+		// mtopLl.setOnClickListener(mOnclickListener);
 		mleftTextBtn.setOnClickListener(mOnclickListener);
 		mMiddleTextBtn.setOnClickListener(mOnclickListener);
 		mrightTextBtn.setOnClickListener(mOnclickListener);
@@ -446,26 +446,6 @@ public class HomeSearchActivity extends Activity implements OnClickListener,
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
-//			if ((!toplistview && !threelistview && !mainlistview1 && !mainlistview2)) {
-//				Builder builder = new Builder(HomeSearchActivity.this);
-//				builder.setTitle("提示");
-//				builder.setMessage("你确定要退出吗？");
-//				builder.setIcon(R.drawable.ic_launcher);
-//				DialogInterface.OnClickListener dialog = new DialogInterface.OnClickListener() {
-//					@Override
-//					public void onClick(DialogInterface arg0, int arg1) {
-//						if (arg1 == DialogInterface.BUTTON_POSITIVE) {
-//							arg0.cancel();
-//						} else if (arg1 == DialogInterface.BUTTON_NEGATIVE) {
-//							HomeSearchActivity.this.finish();
-//						}
-//					}
-//				};
-//				builder.setPositiveButton("取消", dialog);
-//				builder.setNegativeButton("确定", dialog);
-//				AlertDialog alertDialog = builder.create();
-//				alertDialog.show();
-//			}
 			if (toplistview) {
 				mSearch_city_img.setImageResource(R.drawable.search_city);
 				toplist.setVisibility(View.GONE);
@@ -494,7 +474,7 @@ public class HomeSearchActivity extends Activity implements OnClickListener,
 				mMiddleTextBtn.setCompoundDrawables(null, null, drawable, null);
 				mShoplist_mainlist2.setVisibility(View.GONE);
 				mainlistview2 = false;
-			}  
+			}
 
 		}
 		return false;
@@ -504,10 +484,7 @@ public class HomeSearchActivity extends Activity implements OnClickListener,
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
 		Intent intent = new Intent(HomeSearchActivity.this,
-				FoodContentActivity.class);
-		intent.putExtra("id", list.get(position).getId());
-		intent.putExtra("imageid", list.get(position).getImageid() + "");
-		intent.putExtra("name", list.get(position).getName());
+				ShopDetailsActivity.class);
 		HomeSearchActivity.this.startActivity(intent);
 	}
 
